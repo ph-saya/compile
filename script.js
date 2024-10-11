@@ -815,6 +815,7 @@ initialize();
 
 function initialize() {
     let array = cards;
+    let protocolNames = ["apathy", "darkness", "death", "fire", "gravity", "hate", "life", "light", "love", "metal", "plague", "psychic", "speed", "spirit", "water"];
     displayCards(array);
 }
 
@@ -856,23 +857,11 @@ function checkFilters() {
 }
 
 function checkProtocols() {
-    let apathy = $('.js_apathy').is(':checked');
-    let darkness = $('.js_darkness').is(':checked');
-    let death = $('.js_death').is(':checked');
-    let fire = $('.js_fire').is(':checked');
-    let gravity = $('.js_gravity').is(':checked');
-    let hate = $('.js_hate').is(':checked');
-    let life = $('.js_life').is(':checked');
-    let light = $('.js_light').is(':checked');
-    let love = $('.js_love').is(':checked');
-    let metal = $('.js_metal').is(':checked');
-    let plague = $('.js_plague').is(':checked');
-    let psychic = $('.js_psychic').is(':checked');
-    let speed = $('.js_speed').is(':checked');
-    let spirit = $('.js_spirit').is(':checked');
-    let water = $('.js_water').is(':checked');
-
-    return [apathy, darkness, death, fire, gravity, hate, life, light, love, metal, plague, psychic, speed, spirit, water];
+    let output = [];
+    for (protocolName of protocolNames) {
+        output.push($(`.js_${protocolName}`).is(':checked');)
+    }
+    return output;
 };
 
 function checkValue() {
